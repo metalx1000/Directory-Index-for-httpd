@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script>
+    var list;
+    $(document).ready(function(){
+      $.get("/cgi-bin/index.cgi",function(data){
+        list = data.split("\n");
+        list.forEach(function(i){
+          if(i !== ""){
+            $("#list").append('<a href="'+i+'" class="list-group-item">'+i+'</a>');
+          }        
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Basic List Group</h2>
+  <div id="list" class="list-group">
+  </div>
+</div>
+
+</body>
+</html>
+
