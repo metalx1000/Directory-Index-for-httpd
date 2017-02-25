@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 echo -en "Content-Type: text/html\r\n\r\n"
 
 cat << EOH
@@ -20,7 +20,8 @@ cat << EOH
 EOH
 
 #create list
-ls -a --group-directories-first ..${REQUEST_URI#${SCRIPT_NAME}}|while read line
+#ls -a --group-directories-first ..${REQUEST_URI#${SCRIPT_NAME}}|while read line
+ls -a ..${REQUEST_URI#${SCRIPT_NAME}}|while read line
 do
   echo "<a href='$line' class='list-group-item'>$line</a>"
 done
